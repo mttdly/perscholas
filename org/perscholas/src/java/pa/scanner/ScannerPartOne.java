@@ -1,4 +1,4 @@
-package org.perscholas.jdtek.java.pa;
+package org.perscholas.src.java.pa.scanner;
 
 // https://www.hackerrank.com/challenges/java-stdin-and-stdout-1/problem
 // Java Stdin and Stdout I
