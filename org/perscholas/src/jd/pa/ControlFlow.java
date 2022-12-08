@@ -5,16 +5,15 @@ import java.util.Scanner;
 
 public class ControlFlow {
     static Scanner userInput = new Scanner(System.in);
-    public static void main(String args[]) {
 
-
-        //questionOne(); // #1
-        //questionTwo(); // #2
-        //questionThree(); // #3
-        //questionFour(); // #4
-        //questionFive(); // #5
-        //questionSix(); // #6
-        questionSeven(); // #7
+    public static void main(String[] args) {
+//        questionOne(); // #1
+//        questionTwo(); // #2
+//        questionThree(); // #3
+//        questionFour(); // #4
+//        questionFive(); // #5
+//        questionSix(); // #6
+//        questionSeven(); // #7
     }
 
     public static void questionOne() {
@@ -90,12 +89,17 @@ public class ControlFlow {
             Change x to 5 and notice the result.
          */
 
-        int x = 5;
+        int x = 15;
+        // int x = 5;
+
         if (x < 10 || x > 20) {
             System.out.println("Out of range");
         } else {
             System.out.println("In range");
         }
+
+
+
     }
 
     public static void questionFive() {
@@ -111,13 +115,13 @@ public class ControlFlow {
          */
 
         int grade = userInput.nextInt();
-        if (grade >= 90 && grade <= 100) {
+        if (grade <= 100 && grade >= 90) {
             System.out.println("A");
-        } else if (grade <= 89 && 80 <= grade) {
+        } else if (grade <= 89 && grade >= 80) {
             System.out.println("B");
-        } else if (grade >= 70 && grade <= 79) {
+        } else if (grade <= 79 && grade >= 70) {
             System.out.println("C");
-        } else if (grade >= 60 && grade <= 69) {
+        } else if (grade <= 69 && grade >= 60) {
             System.out.println("D");
         } else if (grade < 60) {
             System.out.println("F");
@@ -139,32 +143,15 @@ public class ControlFlow {
             System.out.println("Out of range");
         }
         else {
-            switch(intInput)
-            {
-                case 1:
-                    System.out.println("Sunday");
-                    break;
-                case 2:
-                    System.out.println("Monday");
-                    break;
-                case 3:
-                    System.out.println("Tuesday");
-                    break;
-                case 4:
-                    System.out.println("Wednesday");
-                    break;
-                case 5:
-                    System.out.println("Thursday");
-                    break;
-                case 6:
-                    System.out.println("Friday");
-                    break;
-                case 7:
-                    System.out.println("Saturday");
-                    break;
-                default:
-                    System.out.println("Out of range");
-                    break;
+            switch (intInput) {
+                case 1 -> System.out.println("Sunday");
+                case 2 -> System.out.println("Monday");
+                case 3 -> System.out.println("Tuesday");
+                case 4 -> System.out.println("Wednesday");
+                case 5 -> System.out.println("Thursday");
+                case 6 -> System.out.println("Friday");
+                case 7 -> System.out.println("Saturday");
+                default -> System.out.println("Out of range");
             }
         }
     }
@@ -178,83 +165,74 @@ public class ControlFlow {
          */
 
         System.out.println("What is your filing status?");
-        System.out.println("Case-sensitive valid selections: Single, JointMarried, SeparateMarried, HeadOfHousehold");
-        String filingStatus = userInput.nextLine();
-        System.out.println("What is your yearly income?");
+        System.out.println("(single, joint, separate, head)");
+        String filingStatus = userInput.nextLine().toLowerCase().trim();
+        System.out.printf("%nWhat is your yearly income?%n");
         System.out.println("Only use numbers, no commas. Ex. 38,398 should be 38398");
         int income = userInput.nextInt();
 
+        if ("single".equals(filingStatus)) {
+            if (income >= 0 && income <= 8350) {
+                System.out.println("Tax Rate is 10%");
+            } else if (income >= 8351 && income <= 33950) {
+                System.out.println("Tax Rate is 15%");
+            } else if (income >= 33951 && income <= 82250) {
+                System.out.println("Tax Rate is 25%");
+            } else if (income >= 82251 && income <= 171550) {
+                System.out.println("Tax Rate is 28%");
+            } else if (income >= 171551 && income <= 372950) {
+                System.out.println("Tax Rate is 33%");
+            } else if (income >= 372951) {
+                System.out.println("Tax Rate is 35%");
+            }
+        }
 
-        int[][] filing = {{8350, 33950, 82250, 171550, 372950}, {16700, 67900, 137050, 20885, 372950}, {8350, 33950, 68525, 104425, 186475}};
+        if ("joint".equals(filingStatus)) {
+            if (income >= 0 && income <= 8350) {
+                System.out.println("Tax Rate is 10%");
+            } else if (income >= 8351 && income <= 33950) {
+                System.out.println("Tax Rate is 15%");
+            } else if (income >= 33951 && income <= 82250) {
+                System.out.println("Tax Rate is 25%");
+            } else if (income >= 82251 && income <= 171550) {
+                System.out.println("Tax Rate is 28%");
+            } else if (income >= 171551 && income <= 372950) {
+                System.out.println("Tax Rate is 33%");
+            } else if (income >= 372951) {
+                System.out.println("Tax Rate is 35%");
+            }
+        }
 
-        switch (filingStatus) {
-            case "Single":
-                if (0 >= income && income <=  8350) {
-                    System.out.print("Tax Rate is 10%");
-                } else if (income >= 8351 && income <= 33950) {
-                    System.out.println("Tax Rate is 15%");
-                } else if (income >= 33951 && income <= 82250) {
-                    System.out.println("Tax Rate is 25%");
-                } else if (income >= 82251 && income <= 171550) {
-                    System.out.println("Tax Rate is 28%");
-                } else if (income >= 171551 && income <= 372950) {
-                    System.out.println("Tax Rate is 33%");
-                } else if (income >= 372951) {
-                    System.out.println("Tax Rate is 35%");
-                }
-                break;
+        if ("separate".equals(filingStatus)) {
+            if (income >= 0 && income <= 8350) {
+                System.out.println("Tax Rate is 10%");
+            } else if (income >= 8351 && income <= 33950) {
+                System.out.println("Tax Rate is 15%");
+            } else if (income >= 33951 && income <= 82250) {
+                System.out.println("Tax Rate is 25%");
+            } else if (income >= 82251 && income <= 171550) {
+                System.out.println("Tax Rate is 28%");
+            } else if (income >= 171551 && income <= 372950) {
+                System.out.println("Tax Rate is 33%");
+            } else if (income >= 372951) {
+                System.out.println("Tax Rate is 35%");
+            }
+        }
 
-            case "JointMarried":
-                if (0 >= income && income <=  83350) {
-                    System.out.print("Tax Rate is 10%");
-                } else if (income >= 8351 && income <= 33950) {
-                    System.out.println("Tax Rate is 15%");
-                } else if (income >= 33951 && income <= 82250) {
-                    System.out.println("Tax Rate is 25%");
-                } else if (income >= 82251 && income <= 171550) {
-                    System.out.println("Tax Rate is 28%");
-                } else if (income >= 171551 && income <= 372950) {
-                    System.out.println("Tax Rate is 33%");
-                } else if (income >= 372951) {
-                    System.out.println("Tax Rate is 35%");
-                }
-                break;
-
-            case "SeparateMarried":
-                if (0 >= income && income <=  82350) {
-                    System.out.print("Tax Rate is 10%");
-                } else if (income >= 8351 && income <= 33950) {
-                    System.out.println("Tax Rate is 15%");
-                } else if (income >= 33951 && income <= 82250) {
-                    System.out.println("Tax Rate is 25%");
-                } else if (income >= 82251 && income <= 171550) {
-                    System.out.println("Tax Rate is 28%");
-                } else if (income >= 171551 && income <= 372950) {
-                    System.out.println("Tax Rate is 33%");
-                } else if (income >= 372951) {
-                    System.out.println("Tax Rate is 35%");
-                }
-                break;
-
-            case "HeadOfHousehold":
-                if (0 >= income && income <=  8350) {
-                    System.out.print("Tax Rate is 10%");
-                } else if (income >= 83551 && income <= 33950) {
-                    System.out.println("Tax Rate is 15%");
-                } else if (income >= 33951 && income <= 82250) {
-                    System.out.println("Tax Rate is 25%");
-                } else if (income >= 82251 && income <= 171550) {
-                    System.out.println("Tax Rate is 28%");
-                } else if (income >= 171551 && income <= 372950) {
-                    System.out.println("Tax Rate is 33%");
-                } else if (income >= 372951) {
-                    System.out.println("Tax Rate is 35%");
-                }
-                break;
-
-            default:
-                System.out.println("[INCORRECT INPUT]");
+        if ("head".equals(filingStatus)) {
+            if (income >= 0 && income <= 8350) {
+                System.out.println("Tax Rate is 10%");
+            } else if (income >= 8351 && income <= 33950) {
+                System.out.println("Tax Rate is 15%");
+            } else if (income >= 33951 && income <= 82250) {
+                System.out.println("Tax Rate is 25%");
+            } else if (income >= 82251 && income <= 171550) {
+                System.out.println("Tax Rate is 28%");
+            } else if (income >= 171551 && income <= 372950) {
+                System.out.println("Tax Rate is 33%");
+            } else if (income >= 372951) {
+                System.out.println("Tax Rate is 35%");
+            }
         }
     }
-
 }
