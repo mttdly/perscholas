@@ -1,9 +1,10 @@
-// JD Module 303.2 - Practice Assignment - Control Flow (Conditional) Statements
 package org.perscholas.src.jd.pa;
 
 import java.util.Scanner;
 
 public class ControlFlow {
+    // JD Module 303.2 - Practice Assignment - Control Flow (Conditional) Statements
+
     static Scanner userInput = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -13,14 +14,14 @@ public class ControlFlow {
 //        questionFour(); // #4
 //        questionFive(); // #5
 //        questionSix(); // #6
-//        questionSeven(); // #7
+        questionSeven(); // #7
     }
 
     public static void questionOne() {
         /*
-        Write a program that declares 1 integer variable x, and then assigns 7 to it.
-        Write an if statement to print out “Less than 10” if x is less than 10.
-        Change x to equal 15, and notice the result (console should not display anything).
+            Write a program that declares 1 integer variable x, and then assigns 7 to it.
+            Write an if statement to print out “Less than 10” if x is less than 10.
+            Change x to equal 15, and notice the result (console should not display anything).
         */
 
         int x = 7;
@@ -132,10 +133,10 @@ public class ControlFlow {
 
     public static void questionSix() {
         /*
-                Write a program that accepts an integer between 1 and 7 from the user.
-                Use a switch statement to print out the corresponding weekday.
-                Print “Out of range” if the number is less than 1 or greater than 7.
-                Do not forget to include “break” statements in each of your cases.
+            Write a program that accepts an integer between 1 and 7 from the user.
+            Use a switch statement to print out the corresponding weekday.
+            Print “Out of range” if the number is less than 1 or greater than 7.
+            Do not forget to include “break” statements in each of your cases.
          */
 
         int intInput = userInput.nextInt();

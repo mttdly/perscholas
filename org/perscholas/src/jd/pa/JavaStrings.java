@@ -82,6 +82,7 @@ public class JavaStrings {
         String A = sc.next();
         sc.close();
 
+
         // Set it lowercase for edge cases
         A.toLowerCase();
         reversedString.toLowerCase();

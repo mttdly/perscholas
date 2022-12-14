@@ -5,7 +5,6 @@ package org.perscholas.src.jd.pa;
 import java.util.Scanner;
 
 public class Loops {
-    static Scanner userInput = new Scanner(System.in);
 
     public static void main(String[] args) {
         //questionOne();
@@ -19,11 +18,7 @@ public class Loops {
             Write a program that uses nested for loops to print a multiplication table.
         */
 
-        // Since multiplication tables work off rows/columns, multidimensional arrays could be used
-
-        System.out.print("Enter the desired size of the multiplication table: ");
-        int sizeOfTable = userInput.nextInt();
-        userInput.close();
+        int sizeOfTable = 12;
 
         for(int r = 1; r <= sizeOfTable;  r++) {
             System.out.println("\n");
@@ -47,35 +42,20 @@ public class Loops {
             Check whether k (for k = 2, 3, 4, and so on) is a common divisor for n1 and n2, until k is greater than n1 or n2.
         */
 
+        Scanner userInput = new Scanner(System.in);
         System.out.print("Enter the first positive integer: ");
         int n1 = userInput.nextInt();
         System.out.print("Enter the second positive integer: ");
         int n2 = userInput.nextInt();
 
-        // Check if 1 is a common divisor for n1 and n2
-        if (n1 % 1 == 0 && n2 % 1 == 0) {
-            System.out.println("1 is a common divisor for " + n1 + " and " + n2);
-        } else {
-            System.out.println("1 is not a common divisor for " + n1 + " and " + n2);
-        }
-
-        // Numbers besides 1 to see if they are common divisor
         int gcd = 1;
-        System.out.printf("Common divisors by %d and %d are: ", n1, n2);
         for (int k = 2; k <= n1 || k <= n2; k++) {
             if (n1 % k == 0 && n2 % k == 0) {
                 gcd = k;
-                if(gcd == 1) {
-                    System.out.println("1");
-                }else {
-                    System.out.printf("%d %n", k);
-                }
             }
-
         }
-
-        // Print the result
-        System.out.println("The GCD of " + n1 + " and " + n2 + " is: " + gcd);
+        System.out.println("GCD is: " + gcd);
+        userInput.close();
     }
 
     public static void questionThree() {
@@ -90,24 +70,15 @@ public class Loops {
             ..   | 20,000 or more
         */
 
-        System.out.print("How much is your current tuition per year? ");
-        double currentTuition = userInput.nextInt();
-        double startingTuition = currentTuition;
+        double currentTuition = 10000;
+        double rateIncrease = 0.07;
         double doubledTuition = currentTuition * 2;
-        System.out.print("What's percentage rate of increase per year? ");
-        int rateIncrease = userInput.nextInt();
-        double rateDecIncrease = rateIncrease / 100.0;  // Rate as a decimal
-
-        int year = 1;
-
-
-        double increaseInTuition = (currentTuition * rateIncrease) * .01;
+        int year = 0;
 
         while (currentTuition < doubledTuition) {
-            currentTuition *= (1 + rateDecIncrease);
-            System.out.printf("Tuition for year %d is %d.%n", year, (int)currentTuition);
+            currentTuition *= (1 + rateIncrease);
             year++;
         }
-        System.out.printf("%nIt will take %d years to double your current tuition of %d if the increase rate were %d%% per year.%n", year, (int) startingTuition, rateIncrease);
+        System.out.printf("%nIt will take %d years to double your current tuition.", year);
     }
 }
